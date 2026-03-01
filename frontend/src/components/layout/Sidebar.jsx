@@ -13,11 +13,17 @@ const Sidebar = ({ currentPage }) => {
     if (currentPage === 'analytics') return 'analytics';
     if (currentPage === 'settings') return 'settings';
     if (currentPage.startsWith('habits')) {
-      setExpandedHabits(true);
       return currentPage;
     }
     return 'dashboard';
   };
+
+  // Effect to expand habits menu when on habits page
+  useEffect(() => {
+    if (currentPage.startsWith('habits')) {
+      setExpandedHabits(true);
+    }
+  }, [currentPage]);
 
   const activeSection = getActiveSection();
 
