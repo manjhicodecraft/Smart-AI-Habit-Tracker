@@ -1,35 +1,155 @@
-/* Layout.css - Main layout structure with compact sidebar */
+/* Layout.css - Modern responsive layout with mobile-first approach */
 
 .app-layout {
   display: flex;
   min-height: 100vh;
   background-color: #F8FAFC;
+  width: 100%;
+  position: relative;
 }
 
-/* Main content area - adjusted for new sidebar width */
+/* Main content area - responsive behavior */
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-left: 220px; /* Match sidebar width */
+  margin-left: 220px;
   overflow: hidden;
+  transition: margin-left 0.3s ease;
+  position: relative;
 }
 
 .content-wrapper {
   flex: 1;
   overflow-y: auto;
   padding: 0;
+  width: 100%;
+  /* Add bottom padding to account for mobile navigation */
+  padding-bottom: 70px;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Mobile layout adjustments */
+.main-content.mobile-layout {
+  margin-left: 0;
+}
+
+/* Desktop Large (1024px and above) - Full sidebar layout */
+@media (min-width: 1024px) {
   .main-content {
-    margin-left: 200px;
+    margin-left: 220px;
+  }
+  
+  .content-wrapper {
+    padding-bottom: 0;
   }
 }
 
-@media (max-width: 480px) {
+/* Desktop Medium (896px - 1023px) - Slightly reduced sidebar */
+@media (max-width: 1023px) and (min-width: 896px) {
+  .main-content {
+    margin-left: 200px;
+  }
+  
+  .content-wrapper {
+    padding-bottom: 0;
+  }
+}
+
+/* Tablet (768px - 895px) - Compact sidebar */
+@media (max-width: 895px) and (min-width: 768px) {
+  .main-content {
+    margin-left: 180px;
+  }
+  
+  .content-wrapper {
+    padding-bottom: 0;
+  }
+}
+
+/* Mobile Large (640px - 767px) - Mobile optimized */
+@media (max-width: 767px) and (min-width: 640px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
   .main-content {
     margin-left: 0;
+  }
+  
+  .content-wrapper {
+    padding-bottom: 70px;
+  }
+}
+
+/* Mobile Medium (480px - 639px) - Mobile standard */
+@media (max-width: 639px) and (min-width: 480px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .content-wrapper {
+    padding-bottom: 70px;
+  }
+}
+
+/* Mobile Small (320px - 479px) - Mobile compact */
+@media (max-width: 479px) and (min-width: 320px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .content-wrapper {
+    padding-bottom: 70px;
+    padding: 0 12px 70px 12px;
+  }
+}
+
+/* Ultra-small screens (Below 320px) */
+@media (max-width: 319px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .content-wrapper {
+    padding-bottom: 70px;
+    padding: 0 8px 70px 8px;
+  }
+}
+
+/* Content spacing adjustments for different screen sizes */
+@media (min-width: 1024px) {
+  .content-wrapper {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .content-wrapper {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+  .content-wrapper {
+    padding: 0 16px 70px 16px;
+  }
+}
+
+/* Ensure proper z-index stacking for mobile elements */
+@media (max-width: 767px) {
+  .main-content {
+    z-index: 10;
   }
 }

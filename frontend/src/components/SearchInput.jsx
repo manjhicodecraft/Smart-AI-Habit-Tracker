@@ -48,39 +48,44 @@ const SearchInput = ({ placeholder = "Search habits, analytics...", value, onCha
       </div>
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
+  /* Desktop and tablet styles */
   .white,
   .border,
   .darkBorderBg,
   .glow {
-    max-height: 48px; /* Reduced from 70px */
-    max-width: 280px; /* Reduced width */
+    max-height: 48px;
+    max-width: 100%;
     height: 100%;
     width: 100%;
     position: absolute;
     overflow: hidden;
     z-index: -1;
-    border-radius: 8px; /* Slightly reduced border radius */
-    filter: blur(2px); /* Reduced blur */
+    border-radius: 8px;
+    filter: blur(2px);
   }
+  
   .input {
     background-color: #FFFFFF;
     border: none;
-    width: 270px; /* Reduced width */
-    height: 40px; /* Reduced from 56px */
-    border-radius: 6px; /* Reduced border radius */
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
     color: #334155;
-    padding-inline: 45px; /* Reduced padding */
-    font-size: 14px; /* Reduced font size */
+    padding-inline: 45px;
+    font-size: 14px;
   }
+  
   #poda {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 100%;
   }
+  
   .input::placeholder {
     color: #94A3B8;
   }
@@ -95,34 +100,36 @@ const StyledWrapper = styled.div`
 
   #input-mask {
     pointer-events: none;
-    width: 80px; /* Reduced width */
-    height: 16px; /* Reduced height */
+    width: 80px;
+    height: 16px;
     position: absolute;
     background: linear-gradient(90deg, transparent, white);
-    top: 12px; /* Adjusted position */
-    left: 55px; /* Adjusted position */
+    top: 12px;
+    left: 55px;
   }
+  
   #pink-mask {
     pointer-events: none;
-    width: 24px; /* Reduced width */
-    height: 16px; /* Reduced height */
+    width: 24px;
+    height: 16px;
     position: absolute;
     background: #cf30aa;
-    top: 8px; /* Adjusted position */
-    left: 4px; /* Adjusted position */
-    filter: blur(16px); /* Reduced blur */
+    top: 8px;
+    left: 4px;
+    filter: blur(16px);
     opacity: 0.8;
     transition: all 2s;
   }
+  
   #main:hover > #pink-mask {
     opacity: 0;
   }
 
   .white {
-    max-height: 44px; /* Reduced from 63px */
-    max-width: 274px; /* Reduced width */
-    border-radius: 6px; /* Reduced border radius */
-    filter: blur(1.5px); /* Reduced blur */
+    max-height: 44px;
+    max-width: 100%;
+    border-radius: 6px;
+    filter: blur(1.5px);
   }
 
   .white::before {
@@ -133,8 +140,8 @@ const StyledWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%) rotate(83deg);
     position: absolute;
-    width: 400px; /* Reduced size */
-    height: 400px; /* Reduced size */
+    width: 400px;
+    height: 400px;
     background-repeat: no-repeat;
     background-position: 0 0;
     filter: brightness(1.4);
@@ -148,12 +155,14 @@ const StyledWrapper = styled.div`
     );
     transition: all 2s;
   }
+  
   .border {
-    max-height: 42px; /* Reduced from 59px */
-    max-width: 270px; /* Reduced width */
-    border-radius: 7px; /* Reduced border radius */
-    filter: blur(0.4px); /* Reduced blur */
+    max-height: 42px;
+    max-width: 100%;
+    border-radius: 7px;
+    filter: blur(0.4px);
   }
+  
   .border::before {
     content: "";
     z-index: -2;
@@ -162,8 +171,8 @@ const StyledWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%) rotate(70deg);
     position: absolute;
-    width: 400px; /* Reduced size */
-    height: 400px; /* Reduced size */
+    width: 400px;
+    height: 400px;
     filter: brightness(1.3);
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -177,10 +186,12 @@ const StyledWrapper = styled.div`
     );
     transition: all 2s;
   }
+  
   .darkBorderBg {
-    max-height: 46px; /* Reduced from 65px */
-    max-width: 278px; /* Reduced width */
+    max-height: 46px;
+    max-width: 100%;
   }
+  
   .darkBorderBg::before {
     content: "";
     z-index: -2;
@@ -189,8 +200,8 @@ const StyledWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%) rotate(82deg);
     position: absolute;
-    width: 400px; /* Reduced size */
-    height: 400px; /* Reduced size */
+    width: 400px;
+    height: 400px;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-image: conic-gradient(
@@ -203,44 +214,38 @@ const StyledWrapper = styled.div`
     );
     transition: all 2s;
   }
+  
   #poda:hover > .darkBorderBg::before {
     transform: translate(-50%, -50%) rotate(262deg);
   }
+  
   #poda:hover > .glow::before {
     transform: translate(-50%, -50%) rotate(240deg);
   }
+  
   #poda:hover > .white::before {
     transform: translate(-50%, -50%) rotate(263deg);
   }
+  
   #poda:hover > .border::before {
     transform: translate(-50%, -50%) rotate(250deg);
-  }
-
-  #poda:hover > .darkBorderBg::before {
-    transform: translate(-50%, -50%) rotate(-98deg);
-  }
-  #poda:hover > .glow::before {
-    transform: translate(-50%, -50%) rotate(-120deg);
-  }
-  #poda:hover > .white::before {
-    transform: translate(-50%, -50%) rotate(-97deg);
-  }
-  #poda:hover > .border::before {
-    transform: translate(-50%, -50%) rotate(-110deg);
   }
 
   #poda:focus-within > .darkBorderBg::before {
     transform: translate(-50%, -50%) rotate(442deg);
     transition: all 4s;
   }
+  
   #poda:focus-within > .glow::before {
     transform: translate(-50%, -50%) rotate(420deg);
     transition: all 4s;
   }
+  
   #poda:focus-within > .white::before {
     transform: translate(-50%, -50%) rotate(443deg);
     transition: all 4s;
   }
+  
   #poda:focus-within > .border::before {
     transform: translate(-50%, -50%) rotate(430deg);
     transition: all 4s;
@@ -248,11 +253,12 @@ const StyledWrapper = styled.div`
 
   .glow {
     overflow: hidden;
-    filter: blur(24px); /* Reduced from 30px */
+    filter: blur(24px);
     opacity: 0.4;
-    max-height: 80px; /* Reduced from 130px */
-    max-width: 300px; /* Reduced from 354px */
+    max-height: 80px;
+    max-width: 100%;
   }
+  
   .glow:before {
     content: "";
     z-index: -2;
@@ -261,8 +267,8 @@ const StyledWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%) rotate(60deg);
     position: absolute;
-    width: 600px; /* Reduced size */
-    height: 600px; /* Reduced size */
+    width: 600px;
+    height: 600px;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-image: conic-gradient(
@@ -276,58 +282,33 @@ const StyledWrapper = styled.div`
     transition: all 2s;
   }
 
-  @keyframes rotate {
-    100% {
-      transform: translate(-50%, -50%) rotate(450deg);
-    }
-  }
-  @keyframes leftright {
-    0% {
-      transform: translate(0px, 0px);
-      opacity: 1;
-    }
-
-    49% {
-      transform: translate(250px, 0px);
-      opacity: 0;
-    }
-    80% {
-      transform: translate(-40px, 0px);
-      opacity: 0;
-    }
-
-    100% {
-      transform: translate(0px, 0px);
-      opacity: 1;
-    }
-  }
-
   #filter-icon {
     position: absolute;
-    top: 6px; /* Adjusted position */
-    right: 6px; /* Adjusted position */
+    top: 6px;
+    right: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    max-height: 30px; /* Reduced from 40px */
-    max-width: 30px; /* Reduced from 38px */
+    max-height: 30px;
+    max-width: 30px;
     height: 100%;
     width: 100%;
     isolation: isolate;
     overflow: hidden;
-    border-radius: 6px; /* Reduced border radius */
+    border-radius: 6px;
     background: linear-gradient(180deg, #f8f9fa, #e9ecef, #f8f9fa);
     border: 1px solid transparent;
   }
+  
   .filterBorder {
-    height: 32px; /* Reduced from 42px */
-    width: 32px; /* Reduced from 40px */
+    height: 32px;
+    width: 32px;
     position: absolute;
     overflow: hidden;
-    top: 5px; /* Adjusted position */
-    right: 5px; /* Adjusted position */
-    border-radius: 6px; /* Reduced border radius */
+    top: 5px;
+    right: 5px;
+    border-radius: 6px;
   }
 
   .filterBorder::before {
@@ -337,8 +318,8 @@ const StyledWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%) rotate(90deg);
     position: absolute;
-    width: 400px; /* Reduced size */
-    height: 400px; /* Reduced size */
+    width: 400px;
+    height: 400px;
     background-repeat: no-repeat;
     background-position: 0 0;
     filter: brightness(1.35);
@@ -352,13 +333,219 @@ const StyledWrapper = styled.div`
     );
     animation: rotate 4s linear infinite;
   }
+  
   #main {
     position: relative;
+    width: 100%;
   }
+  
   #search-icon {
     position: absolute;
-    left: 15px; /* Adjusted position */
-    top: 11px; /* Adjusted position */
+    left: 15px;
+    top: 11px;
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .input {
+      height: 36px;
+      padding-inline: 40px;
+      font-size: 13px;
+    }
+    
+    .white, .border, .darkBorderBg {
+      max-height: 42px;
+    }
+    
+    .white {
+      max-height: 38px;
+    }
+    
+    .border {
+      max-height: 36px;
+    }
+    
+    .darkBorderBg {
+      max-height: 40px;
+    }
+    
+    .glow {
+      max-height: 60px;
+    }
+    
+    #input-mask {
+      width: 60px;
+      height: 14px;
+      top: 11px;
+      left: 45px;
+    }
+    
+    #pink-mask {
+      width: 20px;
+      height: 14px;
+      top: 7px;
+      left: 3px;
+      filter: blur(12px);
+    }
+    
+    #filter-icon {
+      max-height: 26px;
+      max-width: 26px;
+      top: 5px;
+      right: 5px;
+    }
+    
+    .filterBorder {
+      height: 28px;
+      width: 28px;
+      top: 4px;
+      right: 4px;
+    }
+    
+    #search-icon {
+      left: 12px;
+      top: 9px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .input {
+      height: 32px;
+      padding-inline: 35px;
+      font-size: 12px;
+    }
+    
+    .white, .border, .darkBorderBg {
+      max-height: 38px;
+    }
+    
+    .white {
+      max-height: 34px;
+    }
+    
+    .border {
+      max-height: 32px;
+    }
+    
+    .darkBorderBg {
+      max-height: 36px;
+    }
+    
+    .glow {
+      max-height: 50px;
+      filter: blur(18px);
+    }
+    
+    #input-mask {
+      width: 50px;
+      height: 12px;
+      top: 10px;
+      left: 40px;
+    }
+    
+    #pink-mask {
+      width: 16px;
+      height: 12px;
+      top: 6px;
+      left: 2px;
+      filter: blur(10px);
+    }
+    
+    #filter-icon {
+      max-height: 22px;
+      max-width: 22px;
+      top: 4px;
+      right: 4px;
+    }
+    
+    .filterBorder {
+      height: 24px;
+      width: 24px;
+      top: 3px;
+      right: 3px;
+    }
+    
+    #search-icon {
+      left: 10px;
+      top: 8px;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    .input {
+      height: 28px;
+      padding-inline: 30px;
+      font-size: 11px;
+    }
+    
+    .white, .border, .darkBorderBg {
+      max-height: 32px;
+    }
+    
+    .white {
+      max-height: 28px;
+    }
+    
+    .border {
+      max-height: 26px;
+    }
+    
+    .darkBorderBg {
+      max-height: 30px;
+    }
+    
+    .glow {
+      max-height: 40px;
+      filter: blur(15px);
+    }
+    
+    #input-mask {
+      width: 40px;
+      height: 10px;
+      top: 9px;
+      left: 35px;
+    }
+    
+    #pink-mask {
+      width: 12px;
+      height: 10px;
+      top: 5px;
+      left: 1px;
+      filter: blur(8px);
+    }
+    
+    #filter-icon {
+      max-height: 18px;
+      max-width: 18px;
+      top: 3px;
+      right: 3px;
+    }
+    
+    .filterBorder {
+      height: 20px;
+      width: 20px;
+      top: 2px;
+      right: 2px;
+    }
+    
+    #search-icon {
+      left: 8px;
+      top: 7px;
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: translate(-50%, -50%) rotate(450deg);
+    }
   }
 `;
 

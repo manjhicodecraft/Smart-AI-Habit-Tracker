@@ -1,4 +1,4 @@
-/* Header.css - Top navigation bar with properly aligned search */
+/* Header.css - Modern header with left greeting and right-aligned elements */
 
 .app-header {
   background: #FFFFFF;
@@ -12,42 +12,103 @@
   top: 0;
   z-index: 100;
   color: #0F172A;
+  width: 100%;
 }
 
+/* Main header container - two-section layout (left and right) */
 .header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  gap: 24px;
+}
+
+/* Mobile menu toggle button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 12px;
+}
+
+.menu-toggle:hover {
+  background-color: #F1F5F9;
+  color: #2563EB;
+}
+
+.menu-toggle.active {
+  color: #2563EB;
+  background-color: #EFF6FF;
+}
+
+/* Left section - greeting/user info (priority: high) */
+.header-left {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 120px;
+  max-width: 300px;
+  overflow: hidden;
 }
 
 .page-title {
-  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.page-title h1 {
+.greeting-text {
   color: #0F172A;
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-}
-
-.search-container {
-  position: relative;
-  width: 300px; /* Reduced width */
-  max-width: 35%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
+.user-name {
+  color: #2563EB;
+  font-weight: 700;
+  display: inline-block;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Right section - search bar and action buttons */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+/* Search container - compact and proportional */
+.search-container {
+  flex: 0 1 320px;
+  max-width: 320px;
+  min-width: 200px;
+}
+
+/* Action buttons container */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .action-button {
@@ -63,6 +124,7 @@
   color: #64748B;
   transition: all 0.2s ease;
   position: relative;
+  flex-shrink: 0;
 }
 
 .action-button:hover {
@@ -95,22 +157,137 @@
   align-items: center;
   justify-content: center;
   padding: 0 4px;
+  box-sizing: border-box;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Desktop Large (1024px and above) - Full layout */
+@media (min-width: 1024px) {
+  .app-header {
+    padding: 0 24px;
+    height: 72px;
+  }
+  
+  .header-content {
+    gap: 24px;
+  }
+  
+  .header-left {
+    min-width: 150px;
+    max-width: 350px;
+  }
+  
+  .greeting-text {
+    font-size: 20px;
+  }
+  
+  .user-name {
+    max-width: 180px;
+  }
+  
+  .header-right {
+    gap: 20px;
+  }
+  
+  .search-container {
+    flex: 0 1 320px;
+    max-width: 320px;
+    min-width: 250px;
+  }
+  
+  .header-actions {
+    gap: 12px;
+  }
+  
+  .action-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Desktop Medium (896px - 1023px) - Balanced layout */
+@media (max-width: 1023px) and (min-width: 896px) {
+  .app-header {
+    padding: 0 20px;
+    height: 68px;
+  }
+  
+  .header-content {
+    gap: 20px;
+  }
+  
+  .header-left {
+    min-width: 130px;
+    max-width: 300px;
+  }
+  
+  .greeting-text {
+    font-size: 18px;
+  }
+  
+  .user-name {
+    max-width: 150px;
+  }
+  
+  .header-right {
+    gap: 16px;
+  }
+  
+  .search-container {
+    flex: 0 1 280px;
+    max-width: 280px;
+    min-width: 200px;
+  }
+  
+  .header-actions {
+    gap: 10px;
+  }
+  
+  .action-button {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .notification-badge {
+    top: 7px;
+    right: 7px;
+    font-size: 9px;
+    min-width: 16px;
+    height: 16px;
+  }
+}
+
+/* Tablet (768px - 895px) - Compact layout */
+@media (max-width: 895px) and (min-width: 768px) {
   .app-header {
     padding: 0 16px;
     height: 64px;
   }
   
-  .page-title h1 {
-    font-size: 18px;
+  .header-content {
+    gap: 16px;
+  }
+  
+  .header-left {
+    min-width: 100px;
+    max-width: 250px;
+  }
+  
+  .greeting-text {
+    font-size: 16px;
+  }
+  
+  .user-name {
+    max-width: 120px;
+  }
+  
+  .header-right {
+    gap: 12px;
   }
   
   .search-container {
-    width: 200px;
-    max-width: 40%;
+    flex: 0 1 240px;
+    max-width: 240px;
+    min-width: 180px;
   }
   
   .header-actions {
@@ -121,15 +298,249 @@
     width: 36px;
     height: 36px;
   }
+  
+  .notification-badge {
+    top: 6px;
+    right: 6px;
+    font-size: 8px;
+    min-width: 15px;
+    height: 15px;
+  }
 }
 
-@media (max-width: 480px) {
-  .search-container {
-    width: 150px;
-    max-width: 35%;
+/* Mobile Large (640px - 767px) - Prioritized layout */
+@media (max-width: 767px) and (min-width: 640px) {
+  .app-header {
+    padding: 0 16px;
+    height: 60px;
   }
   
-  .page-title h1 {
-    font-size: 16px;
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .header-content {
+    gap: 12px;
+  }
+  
+  .header-left {
+    min-width: 80px;
+    max-width: 200px;
+  }
+  
+  .greeting-text {
+    font-size: 15px;
+  }
+  
+  .user-name {
+    max-width: 100px;
+  }
+  
+  .header-right {
+    gap: 10px;
+  }
+  
+  .search-container {
+    flex: 0 1 200px;
+    max-width: 200px;
+    min-width: 150px;
+  }
+  
+  .header-actions {
+    gap: 6px;
+  }
+  
+  .action-button {
+    width: 34px;
+    height: 34px;
+  }
+  
+  .notification-badge {
+    top: 5px;
+    right: 5px;
+    font-size: 8px;
+    min-width: 14px;
+    height: 14px;
+    padding: 0 3px;
+  }
+}
+
+/* Mobile Medium (480px - 639px) - Minimal layout */
+@media (max-width: 639px) and (min-width: 480px) {
+  .app-header {
+    padding: 0 12px;
+    height: 56px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .header-content {
+    gap: 10px;
+  }
+  
+  .header-left {
+    min-width: 0;
+    max-width: 150px;
+  }
+  
+  .greeting-text {
+    font-size: 14px;
+  }
+  
+  .user-name {
+    max-width: 80px;
+  }
+  
+  .header-right {
+    gap: 8px;
+  }
+  
+  .search-container {
+    flex: 0 1 160px;
+    max-width: 160px;
+    min-width: 120px;
+  }
+  
+  .header-actions {
+    gap: 5px;
+  }
+  
+  .action-button {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .notification-badge {
+    top: 4px;
+    right: 4px;
+    font-size: 7px;
+    min-width: 13px;
+    height: 13px;
+    padding: 0 2px;
+  }
+}
+
+/* Mobile Small (320px - 479px) - Essential layout */
+@media (max-width: 479px) and (min-width: 320px) {
+  .app-header {
+    padding: 0 10px;
+    height: 52px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .header-content {
+    gap: 8px;
+  }
+  
+  .header-left {
+    min-width: 0;
+    max-width: 120px;
+  }
+  
+  .greeting-text {
+    font-size: 13px;
+  }
+  
+  .user-name {
+    max-width: 70px;
+  }
+  
+  .header-right {
+    gap: 6px;
+  }
+  
+  .search-container {
+    flex: 0 1 140px;
+    max-width: 140px;
+    min-width: 100px;
+  }
+  
+  .header-actions {
+    gap: 4px;
+  }
+  
+  .action-button {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .notification-badge {
+    top: 3px;
+    right: 3px;
+    font-size: 7px;
+    min-width: 12px;
+    height: 12px;
+    padding: 0 2px;
+  }
+}
+
+/* Ultra-small screens (Below 320px) */
+@media (max-width: 319px) {
+  .app-header {
+    padding: 0 8px;
+    height: 48px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+    padding: 6px;
+    margin-right: 8px;
+  }
+  
+  .header-content {
+    gap: 6px;
+  }
+  
+  .header-left {
+    display: none;
+  }
+  
+  .header-right {
+    gap: 4px;
+  }
+  
+  .search-container {
+    flex: 0 1 120px;
+    max-width: 120px;
+    min-width: 80px;
+  }
+  
+  .header-actions {
+    gap: 3px;
+  }
+  
+  .action-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .notification-badge {
+    top: 2px;
+    right: 2px;
+    font-size: 6px;
+    min-width: 11px;
+    height: 11px;
+    padding: 0 1px;
+  }
+}
+
+/* Extreme small screens */
+@media (max-width: 280px) {
+  .search-container {
+    display: none;
+  }
+  
+  .header-actions {
+    gap: 2px;
+  }
+  
+  .action-button {
+    width: 26px;
+    height: 26px;
   }
 }

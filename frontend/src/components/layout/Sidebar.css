@@ -1,7 +1,7 @@
-/* Sidebar.css - Compact sidebar with branding and active indicators */
+/* Sidebar.css - Modern responsive sidebar with mobile overlay support */
 
 .sidebar {
-  width: 220px; /* Reduced from 260px */
+  width: 220px;
   background: #FFFFFF;
   border-right: 1px solid #E2E8F0;
   height: 100vh;
@@ -181,8 +181,15 @@
   color: #DC2626 !important;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Desktop Large (1024px and above) - Full sidebar */
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+}
+
+/* Desktop Medium (896px - 1023px) - Slightly reduced */
+@media (max-width: 1023px) and (min-width: 896px) {
   .sidebar {
     width: 200px;
   }
@@ -201,16 +208,46 @@
   }
 }
 
-@media (max-width: 480px) {
+/* Tablet (768px - 895px) - Compact sidebar */
+@media (max-width: 895px) and (min-width: 768px) {
   .sidebar {
-    width: 100%;
+    width: 180px;
   }
   
   .sidebar-header {
     padding: 16px 12px;
   }
   
-  .nav-menu {
-    padding: 12px 0;
+  .sidebar-title {
+    font-size: 16px;
+  }
+  
+  .title-tracker {
+    font-size: 12px;
+  }
+  
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 12px;
+    gap: 10px;
+  }
+  
+  .sub-nav-link {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
+
+/* Mobile devices - Sidebar becomes overlay (hidden by default) */
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* Ensure sidebar is hidden on mobile */
+@media (max-width: 767px) {
+  .sidebar {
+    display: none !important;
   }
 }
