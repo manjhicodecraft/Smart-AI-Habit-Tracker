@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatDateTime, isToday } from '../utils/dateUtils';
+import './HabitCard.css';
 
 const HabitCard = ({ habit, onMarkComplete, onEdit, onDelete, stats }) => {
   const { 

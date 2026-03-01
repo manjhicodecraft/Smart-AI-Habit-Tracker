@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './HabitForm.css';
 
 const HabitForm = ({ habit, onSubmit, onCancel, isEditing = false }) => {
   const [formData, setFormData] = useState({
