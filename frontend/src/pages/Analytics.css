@@ -1,0 +1,333 @@
+/* Analytics.css - Analytics page specific styles with new color theme */
+
+/* Analytics Layout */
+.analytics-layout-improved {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  height: calc(100vh - 180px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Left Side - Main Chart Section */
+.main-chart-section-improved {
+  background: #FFFFFF; /* Clean white cards */
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 500px;
+}
+
+.main-chart-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.chart-header h2 {
+  color: #0F172A; /* Heading text */
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.time-filter-options {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-btn {
+  background: #F1F5F9;
+  color: #64748B; /* Light text */
+  border: 1px solid #E2E8F0;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A; /* Heading text */
+}
+
+.filter-btn.active {
+  background: #2563EB; /* Smart Blue primary */
+  color: #FFFFFF;
+  border-color: #2563EB;
+}
+
+/* Chart Container */
+.chart-wrapper {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px 0;
+}
+
+.performance-chart {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  max-height: 300px;
+  flex: 1;
+  display: block;
+}
+
+/* Chart content styling */
+.grid-line {
+  stroke: #E2E8F0;
+  stroke-width: 0.5;
+  stroke-dasharray: 3,3;
+}
+
+.trend-line {
+  transition: stroke 0.3s ease;
+  shape-rendering: geometricPrecision;
+}
+
+.data-point {
+  transition: all 0.2s ease;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+
+.x-label {
+  font-size: 11px;
+  color: #64748B; /* Light text */
+  font-weight: 500;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right Side - Unified Circular Analytics Section */
+.circular-analytics-section-improved {
+  background: #FFFFFF; /* Clean white cards */
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 500px;
+}
+
+.circular-header {
+  margin-bottom: 20px;
+}
+
+.circular-header h2 {
+  color: #0F172A; /* Heading text */
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.unified-circular-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.unified-circular-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.unified-circular-content svg {
+  width: 160px;
+  height: 160px;
+}
+
+.habit-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #F1F5F9;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.legend-item:hover {
+  background: #E2E8F0;
+}
+
+.legend-color {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-icon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.legend-text {
+  color: #334155; /* Normal text */
+  font-size: 11px;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .analytics-layout-improved {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    height: auto;
+    padding: 0 16px;
+  }
+  
+  .main-chart-section-improved,
+  .circular-analytics-section-improved {
+    max-height: none;
+  }
+  
+  .performance-chart {
+    min-height: 180px;
+    max-height: 250px;
+  }
+  
+  .unified-circular-content svg {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-layout-improved {
+    gap: 16px;
+    padding: 0 12px;
+  }
+  
+  .main-chart-section-improved,
+  .circular-analytics-section-improved {
+    padding: 16px;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .time-filter-options {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .chart-header h2,
+  .circular-header h2 {
+    font-size: 18px;
+  }
+  
+  .performance-chart {
+    min-height: 160px;
+  }
+  
+  .unified-circular-content {
+    gap: 16px;
+  }
+  
+  .unified-circular-content svg {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .habit-legend {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .analytics-layout-improved {
+    padding: 0 8px;
+    gap: 12px;
+  }
+  
+  .main-chart-section-improved,
+  .circular-analytics-section-improved {
+    padding: 12px;
+  }
+  
+  .chart-header h2,
+  .circular-header h2 {
+    font-size: 16px;
+  }
+  
+  .performance-chart {
+    min-height: 140px;
+  }
+  
+  .unified-circular-content svg {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .legend-item {
+    padding: 5px 8px;
+  }
+  
+  .legend-text {
+    font-size: 10px;
+  }
+  
+  .chart-labels {
+    margin-top: 6px;
+    padding: 0 2px;
+  }
+  
+  .x-label {
+    font-size: 10px;
+  }
+}

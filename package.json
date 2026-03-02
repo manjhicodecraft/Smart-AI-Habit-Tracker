@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "lucide-react": "^0.575.0",
+    "styled-components": "^6.3.11"
+  }
+}

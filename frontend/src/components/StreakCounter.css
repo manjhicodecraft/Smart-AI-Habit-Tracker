@@ -1,0 +1,83 @@
+/* StreakCounter.css - Styling for streak counter component */
+.streak-counter {
+  display: flex;
+  justify-content: space-around;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  border: 1px solid #E2E8F0;
+  margin-bottom: 24px;
+}
+
+.streak-item {
+  text-align: center;
+  flex: 1;
+  padding: 0 12px;
+}
+
+.streak-item:not(:last-child) {
+  border-right: 1px solid #E2E8F0;
+}
+
+.streak-number {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.streak-number.current {
+  color: #F59E0B;
+}
+
+.streak-number.longest {
+  color: #8B5CF6;
+}
+
+.streak-number.total {
+  color: #2563EB;
+}
+
+.streak-label {
+  color: #64748B;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .streak-counter {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .streak-number {
+    font-size: 24px;
+  }
+  
+  .streak-label {
+    font-size: 12px;
+  }
+  
+  .streak-item {
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .streak-counter {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .streak-item:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 16px;
+  }
+  
+  .streak-number {
+    font-size: 28px;
+  }
+}

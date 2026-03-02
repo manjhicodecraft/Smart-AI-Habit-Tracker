@@ -1,0 +1,91 @@
+.settings-container {
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.settings-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.settings-card h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #0F172A;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.settings-form {
+  margin-bottom: 32px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.save-button {
+  background: #2563EB;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover {
+  background: #1D4ED8;
+}
+
+.success-message {
+  margin-top: 16px;
+  padding: 12px;
+  background: #D1FAE5;
+  color: #065F46;
+  border-radius: 8px;
+  border: 1px solid #A7F3D0;
+}
+
+.account-info {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 24px;
+}
+
+.account-info h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #0F172A;
+}
+
+.account-info p {
+  margin: 8px 0;
+  color: #6B7280;
+}
