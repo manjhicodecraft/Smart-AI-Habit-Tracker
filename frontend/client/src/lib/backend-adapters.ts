@@ -8,9 +8,6 @@ type BackendHabit = {
   frequency?: string | null;
   targetCount?: number | null;
   userId?: number | null;
-};
-
-type BackendHabitWithStats = BackendHabit & {
   currentStreak?: number | null;
 };
 
@@ -67,7 +64,7 @@ function normalizeLevel(level?: string): ParsedMeta["level"] {
   return "beginner";
 }
 
-export function toFrontendHabit(habit: BackendHabit | BackendHabitWithStats): Habit {
+export function toFrontendHabit(habit: BackendHabit): Habit {
   const meta = parseHabitMeta(habit.description, habit.targetCount);
   return {
     id: habit.id,
@@ -152,7 +149,9 @@ export function createRoadmapFromHabit(habit: Habit): HabitRoadmap[] {
     ],
   } as const;
 
-  return baseTasks[habit.level].map((task, index) => ({
+  const tasks = baseTasks[habit.level as keyof typeof baseTasks];
+
+  return tasks.map((task: string, index: number) => ({
     id: index + 1,
     habitId: habit.id,
     dayNumber: index + 1,

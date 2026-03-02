@@ -12,7 +12,6 @@
     "db:push": "drizzle-kit push"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
     "@radix-ui/react-accordion": "^1.2.4",
@@ -84,14 +83,6 @@
     "ws": "^8.18.0",
     "zod": "^3.25.76",
     "zod-validation-error": "^3.5.4"
-=======
-    "axios": "^1.6.7",
-    "lucide-react": "^0.575.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "recharts": "^3.7.0",
-    "styled-components": "^6.3.11"
->>>>>>> 1a548edf6fb3aad7d1c46282465c027e497aecc8
   },
   "devDependencies": {
     "@replit/vite-plugin-cartographer": "^0.4.4",
