@@ -6,6 +6,40 @@ This is not just a normal tracker — it acts like a **digital growth companion*
 
 ---
 
+## 🚀 Quick Start - JUST DOUBLE-CLICK!
+
+### ⭐ **Easiest Way: Double-Click `RUN_APP.bat`**
+
+1. Navigate to the project folder: `D:\Hackathon\Smart-AI-Habit-Tracker\`
+2. **Double-click:** [`RUN_APP.bat`](RUN_APP.bat)
+3. Wait ~30 seconds for both servers to start
+4. Open your browser: **http://localhost:8080**
+
+That's it! No manual commands needed! 🎉
+
+### What Gets Started
+
+When you run `RUN_APP.bat`, it automatically:
+- ✅ Checks if Java is installed
+- ✅ Starts the **Backend Server** (Spring Boot) on port 8080
+- ✅ Waits for backend to be healthy
+- ✅ Starts the **Frontend Server** (Vite/React) on port 5173
+- ✅ Opens two terminal windows that keep running
+
+**Two windows will stay open:**
+- Backend Terminal (Spring Boot)
+- Frontend Terminal (Vite)
+
+**To Stop:** Just close both terminal windows.
+
+### 🌐 Access Your Application
+
+Once started:
+- **Frontend UI:** http://localhost:8080
+- **Backend API Health:** http://localhost:8080/api/health
+
+---
+
 # 🚀 Project Vision
 
 The aim of **AI Habit Tracker** is to create a system where users can:
