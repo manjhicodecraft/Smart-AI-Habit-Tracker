@@ -13,7 +13,7 @@ This is not just a normal tracker — it acts like a **digital growth companion*
 1. Navigate to the project folder: `D:\Hackathon\Smart-AI-Habit-Tracker\`
 2. **Double-click:** [`RUN_APP.bat`](RUN_APP.bat)
 3. Wait ~30 seconds for both servers to start
-4. Open your browser: **http://localhost:8080**
+4. Open your browser: **http://localhost:5000**
 
 That's it! No manual commands needed! 🎉
 
