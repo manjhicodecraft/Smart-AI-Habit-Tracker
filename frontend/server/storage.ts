@@ -45,10 +45,10 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createHabit(userId: string, insertHabit: InsertHabit): Promise<Habit> {
-    const [habit] = await db
+    await db
       .insert(habits)
-      .values({ ...insertHabit, userId })
-      .returning();
+      .values({ ...insertHabit, userId });
+    const [habit] = await db.select().from(habits).orderBy(desc(habits.id)).limit(1);
     return habit;
   }
 
@@ -74,10 +74,10 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createHabitLog(habitId: number, log: Omit<InsertHabitLog, "habitId">): Promise<HabitLog> {
-    const [createdLog] = await db
+    await db
       .insert(habitLogs)
-      .values({ ...log, habitId })
-      .returning();
+      .values({ ...log, habitId });
+    const [createdLog] = await db.select().from(habitLogs).orderBy(desc(habitLogs.id)).limit(1);
       
     // Update streak if needed (simplified logic)
     const habit = await this.getHabit(habitId);
@@ -105,10 +105,10 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createAiChat(userId: string, chat: Omit<InsertAiChat, "userId">): Promise<AiChat> {
-    const [createdChat] = await db
+    await db
       .insert(aiChats)
-      .values({ ...chat, userId })
-      .returning();
+      .values({ ...chat, userId });
+    const [createdChat] = await db.select().from(aiChats).orderBy(desc(aiChats.id)).limit(1);
     return createdChat;
   }
 

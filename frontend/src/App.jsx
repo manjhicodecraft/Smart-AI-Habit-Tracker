@@ -6,6 +6,7 @@ import AddHabit from './pages/AddHabit';
 import Analytics from './pages/Analytics';
 import Auth from './pages/Auth';
 import Settings from './pages/Settings';
+import HabitViewsPage from './pages/HabitViewsPage';
 import Layout from './components/layout/Layout';
 import './App.css';
 
@@ -59,6 +60,8 @@ function App() {
         return <Dashboard />;
       case 'analytics':
         return <Analytics />;
+      case 'habit-views':
+        return <HabitViewsPage />;
       case 'habits':
       case 'habits/technical':
       case 'habits/non-technical':
