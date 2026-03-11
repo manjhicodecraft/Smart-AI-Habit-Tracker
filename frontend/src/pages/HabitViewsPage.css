@@ -133,6 +133,25 @@
   color: #94a3b8;
 }
 
+.habit-view-sheet {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sheet-header-row {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.sheet-header-cell {
+  text-align: center;
+}
+
 .habit-view-heatmap {
   display: grid;
   gap: 4px;

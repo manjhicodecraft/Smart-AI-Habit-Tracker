@@ -23,11 +23,10 @@ const Dashboard = () => {
           onClick={() => handleNavigate('habit-views')}
         >
           <div className="dashboard-card-header">
-            <h3 className="dashboard-card-title">Views</h3>
+            <h3 className="dashboard-card-title">Habit Views</h3>
           </div>
           <p className="dashboard-card-text">
-            Explore Weekly, Monthly, and Yearly heatmap views of your habits with clear color
-            indicators for your performance.
+            Weekly, Monthly, Yearly sheet view of all your habits with clear color indicators for each day.
           </p>
         </button>
 
