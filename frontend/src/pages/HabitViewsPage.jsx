@@ -39,9 +39,9 @@ const HabitViewsPage = () => {
   const gridConfig = useMemo(() => {
     switch (viewMode) {
       case VIEW_MODES.MONTHLY:
-        return { title: 'Monthly View', columns: 7, total: 35 };
+        return { title: 'Monthly View', columns: 7, total: 28 };
       case VIEW_MODES.YEARLY:
-        return { title: 'Yearly View', columns: 12, total: 48 };
+        return { title: 'Yearly View', columns: 12, total: 36 };
       case VIEW_MODES.WEEKLY:
       default:
         return { title: 'Weekly View', columns: 7, total: 7 };
@@ -79,7 +79,7 @@ const HabitViewsPage = () => {
             }`}
             onClick={() => setViewMode(VIEW_MODES.WEEKLY)}
           >
-            Weekly
+            Weekly View
           </button>
           <button
             type="button"
@@ -88,7 +88,7 @@ const HabitViewsPage = () => {
             }`}
             onClick={() => setViewMode(VIEW_MODES.MONTHLY)}
           >
-            Monthly
+            Monthly View
           </button>
           <button
             type="button"
@@ -97,7 +97,7 @@ const HabitViewsPage = () => {
             }`}
             onClick={() => setViewMode(VIEW_MODES.YEARLY)}
           >
-            Yearly
+            Yearly View
           </button>
         </div>
       </div>
@@ -125,36 +125,50 @@ const HabitViewsPage = () => {
               <div>
                 <h3 className="habit-view-name">{habit.name}</h3>
                 <p className="habit-view-meta">
-                  {gridConfig.title} • Lightweight, color‑coded progress overview
+                  {gridConfig.title} • Sheet style progress for each day
                 </p>
               </div>
             </header>
-            <div
-              className="habit-view-heatmap"
-              style={{ gridTemplateColumns: `repeat(${gridConfig.columns}, minmax(0, 1fr))` }}
-            >
-              {habit.progress.map((cell, index) => {
-                const label =
-                  viewMode === VIEW_MODES.WEEKLY
-                    ? WeeklyLabels[index] || `Day ${index + 1}`
-                    : `Day ${index + 1}`;
-                const statusLabel = getStatusLabel(cell.status);
-                const cellClass =
-                  cell.status === 2
-                    ? 'heatmap-cell-full'
-                    : cell.status === 1
-                    ? 'heatmap-cell-partial'
-                    : 'heatmap-cell-missed';
 
-                return (
-                  <div
-                    key={cell.key}
-                    className={`heatmap-cell ${cellClass}`}
-                    aria-label={`${habit.name} • ${label} • ${statusLabel}`}
-                    title={`${label} – ${statusLabel}`}
-                  />
-                );
-              })}
+            <div className="habit-view-sheet">
+              {viewMode === VIEW_MODES.WEEKLY && (
+                <div className="sheet-header-row">
+                  <span className="sheet-header-cell" />
+                  {WeeklyLabels.map((day) => (
+                    <span key={day} className="sheet-header-cell">
+                      {day}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <div
+                className="habit-view-heatmap"
+                style={{ gridTemplateColumns: `repeat(${gridConfig.columns}, minmax(0, 1fr))` }}
+              >
+                {habit.progress.map((cell, index) => {
+                  const label =
+                    viewMode === VIEW_MODES.WEEKLY
+                      ? WeeklyLabels[index] || `Day ${index + 1}`
+                      : `Day ${index + 1}`;
+                  const statusLabel = getStatusLabel(cell.status);
+                  const cellClass =
+                    cell.status === 2
+                      ? 'heatmap-cell-full'
+                      : cell.status === 1
+                      ? 'heatmap-cell-partial'
+                      : 'heatmap-cell-missed';
+
+                  return (
+                    <div
+                      key={cell.key}
+                      className={`heatmap-cell ${cellClass}`}
+                      aria-label={`${habit.name} • ${label} • ${statusLabel}`}
+                      title={`${label} – ${statusLabel}`}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </section>
         ))}
